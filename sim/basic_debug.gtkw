@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sat Feb 17 13:08:18 2024
+[*]
+[dumpfile] "/home/joao/Vision_FPGA/obj_dir/waveform.vcd"
+[dumpfile_mtime] "Sat Feb 17 11:39:23 2024"
+[dumpfile_size] 3707
+[savefile] "/home/joao/Vision_FPGA/sim_stuff/basic_debug.gtkw"
+[timestart] 0
+[size] 1210 736
+[pos] -1 -1
+*-2.652901 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.convolutor.
+[treeopen] TOP.convolutor.rows_m.
+[sst_width] 233
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 191
+@200
+-BASIC SIGNALS
+@28
+TOP.convolutor.clk
+TOP.convolutor.rst
+TOP.convolutor.start_operation
+@200
+-
+-CONTROL SIGNALS
+@2029
+^1 /home/joao/Vision_FPGA/sim_stuff/types_waves.gtkw
+TOP.convolutor.ctrl_m.ctrl_state[1:0]
+^1 /home/joao/Vision_FPGA/sim_stuff/types_waves.gtkw
+TOP.convolutor.ctrl_m.next_ctrl_state[1:0]
+@28
+TOP.convolutor.read_enable
+@200
+-
+@22
+TOP.convolutor.addr[3:0]
+TOP.convolutor.out[31:0]
+@28
+TOP.convolutor.finish_read
+@22
+TOP.convolutor.rows_m.data_out_ram[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
