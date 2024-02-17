@@ -25,15 +25,18 @@ module control(
 			ctrl_state 				<= IDLE;
 			read_enable 			<= 0;
 		end else begin
+			/* verilator lint_off CASEINCOMPLETE */
 			case (ctrl_state)
-				IDLE,
+				
+				IDLE: read_enable 	<= 0;
 
 				READ: read_enable 	<= 1;
 
-				CONV: conv_start 	<= 1;
-				
-				default: conv_start <= 1;
-
+				CONV: begin
+					conv_start 		<= 1;
+					read_enable 	<= 0;
+				end
+			/* verilator lint_off CASEINCOMPLETE */
 			endcase
 		end
 	end
@@ -44,6 +47,7 @@ module control(
 		if(~rst) begin
 			next_ctrl_state 		<= IDLE;
 		end else begin
+			/* verilator lint_off CASEINCOMPLETE */
 			case (ctrl_state)
 				IDLE: begin
 					if(start_operation) next_ctrl_state <= READ;
@@ -54,9 +58,7 @@ module control(
 				end
 
 				CONV: start_conv 						<= 1;
-
-				default: start_conv 					<= 1;
-
+			/* verilator lint_off CASEINCOMPLETE */
 			endcase
 			ctrl_state 				<= next_ctrl_state;
 		end

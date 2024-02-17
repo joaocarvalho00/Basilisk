@@ -32,7 +32,7 @@ module rows_builder
 		logic [`WIDTH-1:0] 			 data_out_ram;
 
 		logic [3:0] 			 	 rows_counter;
-		logic [3:0] 		 	 read_mem_counter;
+		//logic [3:0] 		 	 read_mem_counter;
 
 		logic 			   	   start_rows_counter;
 
@@ -61,12 +61,11 @@ module rows_builder
 
 		always_ff @(posedge clk or negedge rst) begin
 			if (~rst) begin 
-				read_mem_counter <= '0;
 				start_rows_counter <= '0;
 			end
-			else if(read_mem_counter == 0) begin 
+			else if(read_enable) begin 
 				start_rows_counter <= 1;
-			end else read_mem_counter <= read_mem_counter + 1;
+			end
 		end
 
 		assign out = finish_read ? rows : '0;

@@ -4,7 +4,7 @@
 #include <verilated_vcd_c.h>
 #include "convolutor.h"
 
-#define MAX_SIM_TIME 20
+#define MAX_SIM_TIME 30
 vluint64_t sim_time = 0;
 
 
@@ -52,7 +52,7 @@ int main(int argc, char** argv, char** env) {
             
             set_test_case(dut, &test_cases[1]);
         }
-        if(sim_time >= 5 && sim_time % 2 == 0) {
+        if(sim_time >= 12 && sim_time % 2 == 0) {
             increment_addr(dut);
         }
 

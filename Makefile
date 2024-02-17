@@ -7,7 +7,7 @@ run:
 	mv waveform.vcd obj_dir
 
 waves:
-	gtkwave obj_dir/waveform.vcd sim_stuff/basic_debug.gtkw
+	gtkwave obj_dir/waveform.vcd sim/basic_debug.gtkw
 
 clean:
 	rm -r logs/*
