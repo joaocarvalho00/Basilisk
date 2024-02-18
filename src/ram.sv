@@ -1,5 +1,9 @@
+/* verilator lint_off IMPORTSTAR */
+import data_types_pkg::*;
+/* verilator lint_off IMPORTSTAR */
+
 module ram
-	#(parameter ADDR_WIDTH = 4,
+	#(parameter ADDR_WIDTH = 5,
 	  parameter DATA_WIDTH = 8,
 	  parameter DEPTH = 16)
 

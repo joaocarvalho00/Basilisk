@@ -4,7 +4,7 @@
 #include <verilated_vcd_c.h>
 #include "convolutor.h"
 
-#define MAX_SIM_TIME 30
+#define MAX_SIM_TIME 40
 vluint64_t sim_time = 0;
 
 
@@ -12,7 +12,7 @@ struct test_case_t {
     bool clk;
     bool rst;
     bool start_operation;
-    uint8_t addr;
+    uint16_t addr;
     };
 
 test_case_t test_cases[] = {

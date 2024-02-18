@@ -1,5 +1,5 @@
 compile: 
-	verilator -Wall --trace -cc src/defines.sv src/data_types_pkg.sv src/control.sv src/ram.sv src/rows_builder.sv src/convolutor.sv --top-module convolutor --prefix convolutor --exe convolutor_tb.cpp
+	verilator -Wall --trace -cc src/defines.sv src/helper_functions_pkg.sv src/data_types_pkg.sv src/control.sv src/ram.sv src/rows_builder.sv src/convolutor.sv --top-module convolutor --prefix convolutor --exe convolutor_tb.cpp
 	make -C obj_dir -f convolutor.mk convolutor
 
 run:

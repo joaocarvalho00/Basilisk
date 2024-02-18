@@ -1,7 +1,8 @@
 package data_types_pkg;
 	typedef enum logic [1:0] {
 		IDLE,
-		READ,
+		LOAD_WEIGHTS,
+		LOAD_IMG,
 		CONV
 	} CTRL_STATE_t;
 	
