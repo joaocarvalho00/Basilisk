@@ -2,7 +2,6 @@
 // Neural Network on FPGA //
 ////////////////////////////
 
-
 Description:
 	
 	This project revolves on trying to implement a neural network (NN) capable of doing image classification on the MNIST dataset on an FPGA.
