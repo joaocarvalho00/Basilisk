@@ -3,9 +3,8 @@ package data_types_pkg;
 		IDLE,
 		LOAD_WEIGHTS,
 		LOAD_IMG,
-		CONV
+		CONV,
+		XXX = 'x
 	} CTRL_STATE_t;
 	
-
-`include "src/defines.sv"
 endpackage

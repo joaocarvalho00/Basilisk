@@ -7,6 +7,7 @@ module convolutor (
 	input logic 																clk,    
 	input logic 																rst,
 	input logic 													start_operation,
+	input logic 													 start_load_img,
 	input logic [`ADDR_WIDTH_RAM-1:0] 			   			   				   addr,
 
 	output logic [`N_ROWS-1:0][`N_COLUMNS-1:0][`WIDTH-1:0] 						out
@@ -26,7 +27,7 @@ module convolutor (
 	logic [`N_ROWS-1:0][`N_COLUMNS-1:0][`WIDTH-1:0] 				   prev_weights;
 	/* verilator lint_off UNOPTFLAT */
 	
-	logic 									img_weight_sel;
+	logic 															 img_weight_sel;
 
 
 	ram #(
@@ -55,6 +56,7 @@ module convolutor (
 		.clk							(clk			),
 		.rst 							(rst 			),
 		.start_operation				(start_operation),
+		.start_load_img					(start_load_img ),
 		.finish_read					(finish_read 	),
 		// Outputs
 		.read_enable    				(read_enable 	),
@@ -96,6 +98,8 @@ module convolutor (
 		end
 	end
 
+
+	// display new weights matrix on logfile
 	initial prev_weights = 0;
 
 	always @ (weights) begin
