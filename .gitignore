@@ -9,3 +9,6 @@ venv/
 tmp/
 **/obj/*
 **/bin/*
+lib/
+lib64
+pyenv.cfg
