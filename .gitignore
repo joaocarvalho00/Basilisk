@@ -1,2 +1,9 @@
 obj_dir/
 logs/
+.vscode/
+.pytest_cache/
+__pycache__/
+.vscode/
+.env
+venv/
+tmp/
