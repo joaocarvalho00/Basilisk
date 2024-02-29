@@ -54,6 +54,7 @@ module control(
 	end
 
 	// outputs
+	/* verilator lint_off LATCH */
 	always_comb begin
 		n_read_enable 			= 0;
 		//n_load_weights_done		= 0;
@@ -81,6 +82,7 @@ module control(
 			/* verilator lint_off CASEINCOMPLETE */
 		endcase
 	end
+	/* verilator lint_off LATCH */
 
 	always_ff @(posedge clk or negedge rst) begin 
 		if(!rst) begin
