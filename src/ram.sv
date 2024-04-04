@@ -25,7 +25,7 @@ module ram
 
 		$readmemh("src/ram_init.txt", mem);
 		for (int i = 0; i < DEPTH; i++) begin
-			$fdisplay(file, "RAM[%1d] = %1d", i, mem[i]);
+			$fdisplay(file, "RAM[%1d] = %x", i, mem[i]);
 		end
 		$fdisplay(file, "\n#### FINISHED RAM INITIALIZATION ####\n\n");
 		$fclose(file);

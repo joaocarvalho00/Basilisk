@@ -12,7 +12,7 @@ module control(
 
 	output logic read_enable,
 	output logic conv_start,
-	output logic img_weight_sel
+	output img_weights_sel_t img_weight_sel
 	);
 
 	CTRL_STATE_t state, next;
@@ -22,7 +22,7 @@ module control(
 
 	logic n_read_enable;
 	logic n_conv_start;
-	logic n_img_weight_sel;
+	img_weights_sel_t n_img_weight_sel;
 
 
 	/* verilator lint_off UNUSED */
@@ -65,12 +65,12 @@ module control(
 
 			LOAD_WEIGHTS: begin 
 						n_read_enable 			= 1;
-						n_img_weight_sel  		= 1;
+						n_img_weight_sel  		= SEL_WEIGHTS;
 			end
 
 			LOAD_IMG : begin 
 						n_read_enable 			= 1;
-						n_img_weight_sel  		= 0;
+						n_img_weight_sel  		= SEL_IMG;
 			end
 
 			CONV: begin
@@ -87,7 +87,7 @@ module control(
 	always_ff @(posedge clk or negedge rst) begin 
 		if(!rst) begin
 			read_enable 		<= 0;
-			img_weight_sel 		<= 0;
+			img_weight_sel 		<= SEL_IMG;
 			conv_start 			<= 0;
 		end else begin
 			read_enable 		<= n_read_enable;

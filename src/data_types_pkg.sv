@@ -6,5 +6,17 @@ package data_types_pkg;
 		CONV,
 		XXX = 'x
 	} CTRL_STATE_t;
+
+	typedef enum logic {
+		SEL_IMG,
+		SEL_WEIGHTS
+	} img_weights_sel_t;
+
+	typedef enum logic {
+		IDLE,
+		SETUP,
+		WRITE,
+		READ
+	} APB_STATE_t;
 	
 endpackage

@@ -8,13 +8,14 @@ module convolutor (
 	input logic 																rst,
 	input logic 													start_operation,
 	input logic 													 start_load_img,
-	input logic [`ADDR_WIDTH_RAM-1:0] 			   			   				   addr,
+	//input logic [`ADDR_WIDTH_RAM-1:0] 			   			   				   addr,
 
 	output logic [`N_ROWS-1:0][`N_COLUMNS-1:0][`WIDTH-1:0] 						out
 );
 
 	logic 																read_enable;
 	logic 																finish_read;
+	logic [`ADDR_WIDTH_RAM-1:0]													   addr;
 
 	logic [`WIDTH-1:0] 												   data_out_ram;
 	logic [`N_ROWS-1:0][`N_COLUMNS-1:0][`WIDTH-1:0]					 rows_builder_o;
@@ -28,6 +29,15 @@ module convolutor (
 	/* verilator lint_off UNOPTFLAT */
 	
 	logic 															 img_weight_sel;
+
+
+	always_ff @(posedge clk or negedge rst) begin
+		if(~rst) begin
+			addr <= 0;
+		end else if(read_enable) begin
+			addr <= addr +1;
+		end
+	end
 
 
 	ram #(
@@ -86,14 +96,14 @@ module convolutor (
 
 	always_ff @(posedge clk or negedge rst) begin
 		if(!rst) begin
-			img 			<= '0;
-			weights 		<= '0;
+			img 						<= '0;
+			weights 					<= '0;
 			
 		end else if(!img_weight_sel) begin
-			img 		<= rows_builder_o;
+			img 						<= rows_builder_o;
 			//$display("img = %x\n", img);
 		end else begin
-			weights 	<= rows_builder_o;
+			weights 					<= rows_builder_o;
 			//display_matrix("weights", weights, `N_ROWS, `N_COLUMNS);
 		end
 	end
@@ -104,12 +114,12 @@ module convolutor (
 
 	always @ (weights) begin
 		if(weights != prev_weights) begin
-			prev_weights = weights;
+			prev_weights 				= weights;
 			$display("weights = %x\n", weights);
 			display_weights_logfile("weights", weights, `N_ROWS, `N_COLUMNS);
 		end
 	end
 
-	assign out = weights;
+	assign out 							= weights;
 
 endmodule : convolutor

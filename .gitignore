@@ -12,3 +12,6 @@ tmp/
 lib/
 lib64
 pyvenv.cfg
+sim_build/
+results.xml
+dump.fst
