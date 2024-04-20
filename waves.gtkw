@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Fri Apr 19 18:41:35 2024
+[*]
+[dumpfile] "/home/joao/Basilisk_v2/dump.fst"
+[dumpfile_mtime] "Fri Apr 19 18:40:17 2024"
+[dumpfile_size] 719
+[savefile] "/home/joao/Basilisk_v2/waves.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-15.184362 5000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 144
+@28
+processing_element.clk
+processing_element.rst
+@200
+-
+@29
+load_weights
+@22
+processing_element.weights[7:0]
+@200
+-
+@22
+processing_element.data_in[7:0]
+processing_element.accumulate[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

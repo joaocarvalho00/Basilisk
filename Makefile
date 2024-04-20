@@ -1,11 +1,12 @@
-# Makefile
-
 # defaults
-SIM ?= icarus
+SIM ?= verilator
 TOPLEVEL_LANG ?= verilog
 
-VERILOG_SOURCES += $(PWD)/processing_element.sv
-# use VHDL_SOURCES for VHDL files
+
+VERILOG_SOURCES += src/processing_element.sv
+
+EXTRA_ARGS += --trace-fst --trace-structs
+
 
 # TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
 TOPLEVEL = processing_element
@@ -15,3 +16,8 @@ MODULE = processing_element_tb
 
 # include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim
+
+waves:
+	gtkwave dump.fst waves.gtkw
+
+
