@@ -17,7 +17,7 @@ async def processing_element_test(dut):
     cocotb.start_soon(clock.start(start_high=False))
 
     await RisingEdge(dut.clk)
-    for i in range(10):
+    for i in range(50):
         count = i
         if(i==1):
             dut.rst.value = 1

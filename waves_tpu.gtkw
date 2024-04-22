@@ -1,0 +1,124 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Apr 22 17:38:17 2024
+[*]
+[dumpfile] "/home/joao/Basilisk/dump.fst"
+[dumpfile_mtime] "Mon Apr 22 17:32:18 2024"
+[dumpfile_size] 2196
+[savefile] "/home/joao/Basilisk/waves_tpu.gtkw"
+[timestart] 0
+[size] 1210 736
+[pos] -1 -1
+*-17.313662 155000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tpu.
+[sst_width] 238
+[signals_width] 299
+[sst_expanded] 1
+[sst_vpaned_height] 191
+@28
+clk
+rst
+tpu.valid
+tpu.count[2:0]
+@200
+-
+@800023
+#{data[0:1][7:0]} (0)data[0][7:0] (1)data[0][7:0] (2)data[0][7:0] (3)data[0][7:0] (4)data[0][7:0] (5)data[0][7:0] (6)data[0][7:0] (7)data[0][7:0] (0)data[1][7:0] (1)data[1][7:0] (2)data[1][7:0] (3)data[1][7:0] (4)data[1][7:0] (5)data[1][7:0] (6)data[1][7:0] (7)data[1][7:0]
+@23
+data[0][7:0]
+data[1][7:0]
+@1001201
+-group_end
+@200
+-
+@c00022
+#{out} (0)tpu.out[0][0][7:0] (1)tpu.out[0][0][7:0] (2)tpu.out[0][0][7:0] (3)tpu.out[0][0][7:0] (4)tpu.out[0][0][7:0] (5)tpu.out[0][0][7:0] (6)tpu.out[0][0][7:0] (7)tpu.out[0][0][7:0] (0)tpu.out[0][1][7:0] (1)tpu.out[0][1][7:0] (2)tpu.out[0][1][7:0] (3)tpu.out[0][1][7:0] (4)tpu.out[0][1][7:0] (5)tpu.out[0][1][7:0] (6)tpu.out[0][1][7:0] (7)tpu.out[0][1][7:0] (0)tpu.out[1][0][7:0] (1)tpu.out[1][0][7:0] (2)tpu.out[1][0][7:0] (3)tpu.out[1][0][7:0] (4)tpu.out[1][0][7:0] (5)tpu.out[1][0][7:0] (6)tpu.out[1][0][7:0] (7)tpu.out[1][0][7:0] (0)tpu.out[1][1][7:0] (1)tpu.out[1][1][7:0] (2)tpu.out[1][1][7:0] (3)tpu.out[1][1][7:0] (4)tpu.out[1][1][7:0] (5)tpu.out[1][1][7:0] (6)tpu.out[1][1][7:0] (7)tpu.out[1][1][7:0]
+@22
+tpu.out[0][0][7:0]
+tpu.out[0][1][7:0]
+tpu.out[1][0][7:0]
+tpu.out[1][1][7:0]
+@1401200
+-group_end
+@200
+-
+-
+@28
+tpu.load_weights
+@c00022
+#{weights} (0)tpu.weights[0][0][7:0] (1)tpu.weights[0][0][7:0] (2)tpu.weights[0][0][7:0] (3)tpu.weights[0][0][7:0] (4)tpu.weights[0][0][7:0] (5)tpu.weights[0][0][7:0] (6)tpu.weights[0][0][7:0] (7)tpu.weights[0][0][7:0] (0)tpu.weights[0][1][7:0] (1)tpu.weights[0][1][7:0] (2)tpu.weights[0][1][7:0] (3)tpu.weights[0][1][7:0] (4)tpu.weights[0][1][7:0] (5)tpu.weights[0][1][7:0] (6)tpu.weights[0][1][7:0] (7)tpu.weights[0][1][7:0] (0)tpu.weights[1][0][7:0] (1)tpu.weights[1][0][7:0] (2)tpu.weights[1][0][7:0] (3)tpu.weights[1][0][7:0] (4)tpu.weights[1][0][7:0] (5)tpu.weights[1][0][7:0] (6)tpu.weights[1][0][7:0] (7)tpu.weights[1][0][7:0] (0)tpu.weights[1][1][7:0] (1)tpu.weights[1][1][7:0] (2)tpu.weights[1][1][7:0] (3)tpu.weights[1][1][7:0] (4)tpu.weights[1][1][7:0] (5)tpu.weights[1][1][7:0] (6)tpu.weights[1][1][7:0] (7)tpu.weights[1][1][7:0]
+tpu.weights[0][0][7:0]
+@28
+(0)tpu.weights[0][0][7:0]
+(1)tpu.weights[0][0][7:0]
+(2)tpu.weights[0][0][7:0]
+(3)tpu.weights[0][0][7:0]
+(4)tpu.weights[0][0][7:0]
+(5)tpu.weights[0][0][7:0]
+(6)tpu.weights[0][0][7:0]
+(7)tpu.weights[0][0][7:0]
+@1401200
+-group_end
+@22
+tpu.weights[0][1][7:0]
+tpu.weights[1][0][7:0]
+tpu.weights[1][1][7:0]
+@1401200
+-group_end
+@200
+-
+-
+-PE0
+@22
+tpu.pe0.data_in[7:0]
+tpu.pe0.weights[7:0]
+tpu.pe0.accumulate[7:0]
+@28
+tpu.pe0.valid
+tpu.pe0.valid_out
+@22
+tpu.pe0.out_column[7:0]
+tpu.pe0.out_row[7:0]
+@200
+-
+-PE1
+@22
+tpu.pe1.data_in[7:0]
+tpu.pe1.data_in_accumulate[7:0]
+tpu.pe1.weights[7:0]
+tpu.pe1.accumulate[7:0]
+@28
+tpu.pe1.valid
+tpu.pe1.valid_out
+@22
+tpu.pe1.out_column[7:0]
+tpu.pe1.out_row[7:0]
+@200
+-
+-PE2
+@22
+tpu.pe2.data_in[7:0]
+tpu.pe2.weights[7:0]
+tpu.pe2.accumulate[7:0]
+@28
+tpu.pe2.valid
+tpu.pe2.valid_out
+@22
+tpu.pe2.out_column[7:0]
+tpu.pe2.out_row[7:0]
+@200
+-
+-PE3
+@22
+tpu.pe3.data_in_accumulate[7:0]
+tpu.pe2.data_in[7:0]
+tpu.pe3.weights[7:0]
+tpu.pe3.accumulate[7:0]
+@28
+tpu.pe3.valid
+tpu.pe3.valid_out
+@22
+tpu.pe3.out_column[7:0]
+tpu.pe3.out_row[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

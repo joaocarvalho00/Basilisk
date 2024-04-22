@@ -5,6 +5,7 @@ module processing_element (
     input   logic load_weights,
     input   logic valid,
     input   logic [7:0] data_in,
+    input   logic [7:0] data_in_accumulate,
     input   logic [7:0] weights_in,
 
     output  logic valid_out,
@@ -14,6 +15,7 @@ module processing_element (
 
     logic [7:0] accumulate;
     logic [7:0] weights;
+    logic [7:0] itm_reg;
 
     // Load weights
     always_ff @(posedge clk or negedge rst) begin
@@ -31,11 +33,11 @@ module processing_element (
             accumulate  <= 8'h0;
         end
         else begin
-            accumulate  <= accumulate + data_in * weights;
+            accumulate  <= data_in * weights + data_in_accumulate;
         end
     end
 
-    assign out_row      = data_in;
+    assign out_row     = data_in;
     assign out_column   = accumulate;
     assign valid_out    = valid;
 endmodule
