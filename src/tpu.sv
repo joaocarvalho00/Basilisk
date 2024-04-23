@@ -22,6 +22,7 @@ module tpu #(
     logic            [7:0]          wr_data_pe3_in;
 
     logic            [7:0]          wr_data_pe1_in_dly;
+    logic            [7:0]          wr_data_pe3_in_dly;
 
     logic            [7:0]          wr_data_row_pe0_out;
     logic            [7:0]          wr_data_row_pe1_out;
@@ -48,7 +49,12 @@ module tpu #(
     logic                           valid_pe2_out;
     logic                           valid_pe3_out; 
 
-    logic [K-1:0][K-1:0][7:0]       out_lsfr;     
+    logic                           valid_pe1_out_dly;
+    logic                           valid_pe3_out_dly;
+
+    logic [K-1:0][K-1:0][7:0]       out_lsfr;    
+    logic        [K-1:0][7:0]       row_1;
+    logic        [K-1:0][7:0]       row_2;
 
     always_ff @(posedge clk or negedge rst) begin
         if (!rst) begin
@@ -61,6 +67,9 @@ module tpu #(
             if(start) count <= count + 1;
             wr_data_in         <= data;
             wr_data_pe1_in_dly <= wr_data_pe1_in;
+            wr_data_pe3_in_dly <= wr_data_pe3_in;
+            valid_pe1_out_dly  <= valid_pe1_out;
+            valid_pe3_out_dly  <= valid_pe3_out;
         end
     end
 
@@ -69,8 +78,11 @@ module tpu #(
             valid           <= 1'b0;
         end
         else begin
-            if(count == K) valid <= 1'b1;
-            else if(valid_pe0_out & valid_pe1_out & valid_pe2_out & valid_pe3_out) valid <= 1'b0;
+            if(count == K+1) begin
+                valid       <= 1'b1;
+                count       <= 3'b0;
+            end
+            else valid <= 1'b0;
         end
     end
 
@@ -118,7 +130,7 @@ module tpu #(
          .rst                       (rst                ),
          .load_weights              (load_weights       ),
          .valid                     (valid_pe3_in       ),
-         .data_in                   (wr_data_pe3_in     ),
+         .data_in                   (wr_data_pe3_in_dly ),
          .data_in_accumulate        (wr_data_col_pe2_out),
          .weights_in                (wr_weights_pe3_in  ),
          .valid_out                 (valid_pe3_out      ),
@@ -143,14 +155,19 @@ module tpu #(
 
     always_ff @(posedge clk or negedge rst) begin
         if (!rst) begin
-            out_lsfr           <= 32'h0;
+            //out_lsfr           <= 32'h0;
+            row_1              <= 16'h0;
         end
         else begin
-            out_lsfr[0]        <= {out_lsfr[0][0], wr_data_col_pe1_out};
-            out_lsfr[1]        <= {out_lsfr[1][0], wr_data_col_pe3_out};
+            //if(!valid_pe1_out_dly) out_lsfr[0]        <= {wr_data_col_pe1_out, out_lsfr[0][1]};
+            //if(!valid_pe3_out_dly) out_lsfr[1]        <= {wr_data_col_pe3_out, out_lsfr[1][1]};
+            if(!valid_pe1_out_dly)  row_1               <= {wr_data_col_pe1_out, row_1[1]};
+            if(!valid_pe1_out_dly)  row_2               <= {wr_data_col_pe3_out, row_2[1]};
         end
     end
 
     assign out = valid_pe3_out ? out_lsfr : 32'h0;
+
+    assign out_lsfr = {row_2, row_1};
 
 endmodule

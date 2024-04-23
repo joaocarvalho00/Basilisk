@@ -33,10 +33,15 @@ async def tpu_test(dut):
         if(i>3):
             if(i == 4):
                 dut.start.value = 1
-
-            count_i += 1
-            count = count_i * 514
-            dut.data.value = count
+                dut.data.value = 513
+            if(i == 5):
+                dut.data.value = 1027
+            if(i>5):
+                dut.data.value = 0
+            # else:
+            #     count_i += 1
+            #     count = count_i * 514
+            #     dut.data.value = count
         print(f'DATA_IN = {dut.data.value}')
         await RisingEdge(dut.clk)
 

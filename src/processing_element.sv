@@ -34,10 +34,10 @@ module processing_element (
         end
         else begin
             accumulate  <= data_in * weights + data_in_accumulate;
+            valid_out   <= valid;
         end
     end
 
-    assign out_row     = data_in;
+    assign out_row      = data_in;
     assign out_column   = accumulate;
-    assign valid_out    = valid;
 endmodule
