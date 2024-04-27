@@ -14,7 +14,7 @@ TOPLEVEL = tpu
 
 # MODULE is the basename of the Python test file
 # MODULE = processing_element_tb
-MODULE = tpu_tb
+MODULE = tpu_basic_matmult_test
 
 # include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim

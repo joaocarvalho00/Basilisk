@@ -15,7 +15,7 @@ module processing_element (
 
     logic [7:0] accumulate;
     logic [7:0] weights;
-    logic [7:0] itm_reg;
+    logic       clear_accumulate;
 
     // Load weights
     always_ff @(posedge clk or negedge rst) begin
@@ -29,15 +29,16 @@ module processing_element (
 
     // Multiply accumulate (MAC)
     always_ff @(posedge clk or negedge rst) begin
-        if (!rst) begin
+        if (!rst && clear_accumulate) begin
             accumulate  <= 8'h0;
         end
         else begin
             accumulate  <= data_in * weights + data_in_accumulate;
             valid_out   <= valid;
+            out_row     <= data_in;
         end
     end
 
-    assign out_row      = data_in;
+    assign clear_accumulate = valid_out;
     assign out_column   = accumulate;
 endmodule
